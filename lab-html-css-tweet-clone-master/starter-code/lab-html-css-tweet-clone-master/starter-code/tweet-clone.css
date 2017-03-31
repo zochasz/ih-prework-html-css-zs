@@ -1,0 +1,159 @@
+/*----------------------------------------------------RESET--------------------------------------------*/
+
+* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+/*---------------------------------------------------------------General-------------------------*/
+    *{
+        box-sizing: border-box;
+    }
+
+body{
+	margin: 0;
+  background: rgb(244, 248, 249);
+	font-family: helvetica;
+    }
+/*--------------------------------------------------------------Estilos tipograficos------------*/
+
+/*--------------------------------------------------------------Cabezera------------------------*/
+
+/*---------------------------------------------------------------Estructura----------------------*/
+.big-box{
+  width: 600px;
+  height: auto;
+  background-color: rgb(255, 255, 255);
+  border-radius: 7px;
+  border: 1px solid rgb(225, 232, 237);
+  margin-top: 200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 25px;
+}
+
+.foto{
+  width: 50px;
+  height: 50px;
+  border-radius: 7px;
+  background-image: url(img/profile-picture.jpg);
+  background-size: contain;
+  float: left;
+}
+.name-tab{
+  float: left;
+  margin-top: -18px;
+  margin-left: 15px;
+}
+.name{
+  font-size: 21px;
+  font-weight: bold;
+  color: rgb(0, 0, 0);
+  margin-left: -40px;
+  margin-right: 5px;
+}
+.account{
+  font-size: 21px;
+  color: rgb(104, 109, 129);
+  margin-top: -18px;
+}
+.follow{
+  width: 120px;
+  height: 45px;
+  padding-left: 50px;
+  border: 2px solid rgb(85, 172, 238);
+  border-radius: 7px;
+  float: right;
+  line-height: 0.5;
+  background-image: url(img/twitter-logo.jpg);
+  background-repeat: no-repeat;
+  background-position: 15px;
+  background-size: 25px;
+  color: rgb(85, 172, 238);
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.texto1{
+  margin-top: 75px;
+  font-size: 22px;
+  color: rgb(0, 0, 0);
+}
+.date{
+  margin-top: -10px;
+  font-size: 22px;
+  color: rgb(101, 116, 127);
+}
+
+/*--------------------------------------------------------------Pie-----------------------------*/
+.retweet, .like, .reply{
+  color: rgb(105, 120, 130);
+  font-size: 21px;
+  float: left;
+  height: 40px;
+  background-repeat: no-repeat;
+  background-size: 25px;
+  background-position: bottom left;
+  text-align: right;
+}
+
+.reply{
+  width: 25px;
+  background-image: url(img/reply.jpg);
+}
+
+.retweet{
+  margin-left: 30px;
+  width: 100px;
+  background-image: url(img/retweet.jpg);
+}
+.like{
+  margin-left: 30px;
+  background-size: 20px;
+  width: 100px;
+  background-image: url(img/favorite.jpg);
+}
+/*--------------------------------------------------------------Paginas-------------------------*/
