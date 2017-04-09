@@ -5,7 +5,11 @@ for (i=0; i<10; i++){
     myGrid2[i].push(x);
   }
 }
-console.log(myGrid2);
+myGrid2[0][0]='R0';
+myGrid2[1][1]='X';
+myGrid2[2][2]='X';
+myGrid2[3][3]='X';
+
 
 var myRover={
   position: [0,0],
@@ -13,7 +17,7 @@ var myRover={
 };
 
 console.log(" ");
-console.log("Starting Rover Position: [0, 0]")
+console.log("Starting Rover Position: [0, 0]");
 
 function esfera(rover) {
   if (rover.position[0]<0) {rover.position[0] = rover.position[0]+10}
@@ -21,46 +25,80 @@ function esfera(rover) {
   if (rover.position[0]>9) {rover.position[0] = rover.position[0]-10}
   if (rover.position[1]>9) {rover.position[1] = rover.position[1]-10}
 }
+function obstacleForward(rover){
+  console.log("Obstacle deteccion: [" + rover.position[0] + "," + rover.position[1] + "] ");
+  goBack(rover);
+  finish(rover);
+}
+
+function obstacleBackwards(rover){
+  console.log("Obstacle deteccion: [" + rover.position[0] + "," + rover.position[1] + "] ");
+  goForward(rover);
+  finish(rover);
+}
 
 function goForward(rover) {
   switch(rover.direction) {
     case 'N':
-      rover.position[0]--
+      myRover.position[0]--;
       break;
     case 'E':
-      rover.position[1]++
+      myRover.position[1]++;
       break;
     case 'S':
-      rover.position[0]++
+      myRover.position[0]++;
       break;
     case 'W':
-      rover.position[1]--
+      myRover.position[1]--;
       break;
   }
   esfera(rover);
 
-  console.log("New Rover Position: [" + rover.position[0] + ", " + rover.position[1] + "] " +rover.direction)
+  if (myRover.position[0]===1 && myRover.position[1]===1){
+    obstacleForward(rover);
+  }
+
+  if (myRover.position[0]===2 && myRover.position[1]===2){
+    obstacleForward(rover);
+  }
+
+  if (myRover.position[0]===3 && myRover.position[1]===3){
+    obstacleForward(rover);
+  }
+
+  console.log("New Rover Position: [" + rover.position[0] + "," + rover.position[1] + "] " +rover.direction);
 }
 
 function goBack(rover) {
   switch(rover.direction) {
     case 'N':
-      rover.position[0]++
+      myRover.position[0]++;
       break;
     case 'E':
-      rover.position[1]--
+      myRover.position[1]--;
       break;
     case 'S':
-      rover.position[0]--
+      myRover.position[0]--;
       break;
     case 'W':
-      rover.position[1]++
+      myRover.position[1]++;
       break;
   }
 
   esfera(rover);
+  if (myRover.position[0]===1 && myRover.position[1]===1){
+    obstacleBackwards(rover)(rover);
+  }
 
-  console.log("New Rover Position: [" + rover.position[0] + ", " + rover.position[1] + "] " +rover.direction)
+  if (myRover.position[0]===2 && myRover.position[1]===2){
+    obstacleBackwards(rover)(rover);
+  }
+
+  if (myRover.position[0]===3 && myRover.position[1]===3){
+    obstacleBackwards(rover)(rover);
+  }
+
+  console.log("New Rover Position: [" + rover.position[0] + "," + rover.position[1] + "] " +rover.direction);
 }
 
   function goRight(rover) {
@@ -78,7 +116,7 @@ function goBack(rover) {
       myRover.direction='N';
       break;
   }
-  console.log("New Rover Position: [" + rover.position[0] + ", " + rover.position[1] + "] " +rover.direction)
+  console.log("New Rover Position: [" + rover.position[0] + "," + rover.position[1] + "] " +rover.direction);
 }
 
   function goLeft(rover) {
@@ -96,7 +134,7 @@ function goBack(rover) {
       myRover.direction='S';
       break;
   }
-  console.log("New Rover Position: [" + rover.position[0] + "," + rover.position[1] + "] "+ rover.direction)
+  console.log("New Rover Position: [" + rover.position[0] + "," + rover.position[1] + "] "+ rover.direction);
 }
 
 var order = prompt ("Please, insert the instruccions: f - forward, b - backwards, l - left and r - right");
@@ -104,6 +142,7 @@ var order = prompt ("Please, insert the instruccions: f - forward, b - backwards
 var stringLength = order.length;
 
 for (i=0; i<=stringLength; i++){
+
   if (order[i]==="f"){
     console.log(" ");
     console.log("Forward");
@@ -124,4 +163,15 @@ for (i=0; i<=stringLength; i++){
     console.log("Left");
     goLeft(myRover);
   }
+}
+
+
+
+function finish(rover){
+  console.log(" ");
+  var a = myRover.position[0];
+  var b = myRover.position[1];
+  myGrid2[a][b]="R1";
+  console.log(myGrid2);
+  abord;
 }
