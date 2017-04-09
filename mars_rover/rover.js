@@ -142,8 +142,8 @@ var order = prompt ("Please, insert the instruccions: f - forward, b - backwards
 var stringLength = order.length;
 
 for (i=0; i<=stringLength; i++){
-
-  if (order[i]==="f"){
+  if (stringLength===0){finish(myRover)}
+  else if (order[i]==="f"){
     console.log(" ");
     console.log("Forward");
     goForward(myRover);
@@ -163,11 +163,12 @@ for (i=0; i<=stringLength; i++){
     console.log("Left");
     goLeft(myRover);
   }
+  else {
+    console.log('Input error');
+    finish(myRover);}
 }
 
-
-
-function finish(rover){
+function finish(myRover){
   console.log(" ");
   var a = myRover.position[0];
   var b = myRover.position[1];
